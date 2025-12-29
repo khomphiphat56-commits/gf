@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1 Year Anniversary 💙</title>
+
+<style>
+/* =========================
+   ตัวแปรสีหลัก (โทนฟ้า-ม่วง)
+========================= */
+:root{
+  --bg1:#eef4ff;     /* พื้นหลังอ่อน */
+  --bg2:#dbe8ff;     /* พื้นหลังกลาง */
+  --bg3:#e3dcff;     /* พื้นหลังม่วง */
+  --deep:#4f5b82;    /* สีข้อความเข้ม */
+}
+
+/* reset พื้นฐาน */
+*{
+  box-sizing:border-box;
+  font-family:"Segoe UI",system-ui,sans-serif;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+  overflow:hidden; /* ซ่อนของลอยนอกจอ */
+}
+
+/* =========================
+   แสงเรือง (Glow) ด้านหลัง
+========================= */
+.glow{
+  position:fixed;
+  width:520px;
+  height:520px;
+  background:radial-gradient(circle,rgba(160,190,255,.65),transparent 70%);
+  filter:blur(90px);
+  animation:move 26s infinite alternate ease-in-out;
+  z-index:0;
+}
+.g1{top:-220px;left:-200px;}
+.g2{bottom:-240px;right:-200px;animation-delay:6s;}
+
+@keyframes move{
+  to{transform:translateY(160px);}
+}
+
+/* =========================
+   ชั้นของสิ่งที่ลอย
+========================= */
+.bg{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+/* รูปลอย */
+.float-img{
+  position:absolute;
+  bottom:-80px;
+  width:30px;              /* ขนาดรูปที่ลอย */
+  height:30px;
+  border-radius:50%;
+  object-fit:cover;
+  opacity:.85;
+  animation:rise linear forwards;
+  box-shadow:0 6px 14px rgba(120,150,255,.35);
+}
+
+/* หัวใจ / ดาว / ดอกไม้ */
+.floating{
+  position:absolute;
+  bottom:-60px;
+  font-size:18px;
+  animation:rise linear forwards;
+  opacity:.7;
+}
+
+/* แอนิเมชันลอยขึ้น */
+@keyframes rise{
+  from{transform:translateY(0) scale(.9);opacity:0}
+  20%{opacity:1}
+  to{transform:translateY(-120vh) scale(1.15);opacity:0}
+}
+
+/* =========================
+   หน้า Intro (หน้ากดเข้า)
+========================= */
+#intro{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#9fc4ff,#b19cff);
+  z-index:50;
+  transition:1.2s ease;
+}
+
+.intro-card{
+  background:rgba(255,255,255,.25);
+  backdrop-filter:blur(28px);
+  padding:90px 60px;
+  border-radius:60px;
+  text-align:center;
+  color:#fff;
+  box-shadow:0 40px 120px rgba(0,0,0,.25);
+}
+
+.intro-card h1{
+  font-size:40px;
+  margin-bottom:18px;
+}
+
+.intro-card button{
+  margin-top:46px;
+  padding:20px 70px;
+  border:none;
+  border-radius:50px;
+  font-size:18px;
+  cursor:pointer;
+  background:#fff;
+  color:#6a7dff;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+/* =========================
+   หน้าหลัก
+========================= */
+.main{
+  position:relative;
+  z-index:10;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1.2s ease;
+}
+.main.show{
+  opacity:1;
+  transform:none;
+}
+
+/* การ์ดกลาง */
+.card{
+  max-width:460px;                     /* ขนาดการ์ดเล็กลง */
+  background:rgba(235,245,255,.9);     /* ฟ้าอ่อนใส */
+  backdrop-filter:blur(30px);
+  border-radius:54px;
+  padding:52px 36px;
+  text-align:center;
+  box-shadow:
+    0 45px 120px rgba(120,170,255,.35),
+    0 0 40px rgba(180,210,255,.45);
+}
+
+/* รูปคู่ตรงกลาง */
+.photo-wrap{
+  width:200px;
+  height:200px;
+  margin:0 auto 28px;
+}
+.photo{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  border:7px solid #fff;
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ข้อความ */
+h2{
+  font-size:32px;
+  color:var(--deep);
+}
+.names{
+  font-size:19px;
+  color:#6a78a0;
+}
+
+/* ป้าย 1Y */
+.badge{
+  margin-top:16px;
+  padding:12px 28px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#9fc4ff,#b19cff);
+  color:#fff;
+  display:inline-block;
+  box-shadow:0 8px 20px rgba(120,140,255,.45);
+}
+
+/* เวลาคบ */
+#loveTime{
+  margin-top:18px;
+  font-size:14px;
+  color:#5a6a8f;
+  line-height:1.8;
+}
+
+/* กล่องข้อความ */
+.message{
+  margin-top:22px;
+  padding:18px 20px;
+  border-radius:20px;
+  background:#f1f6ff;
+  color:#4f5f88;
+  font-size:15px;
+}
+
+/* Responsive */
+@media (max-width:600px){
+  .card{max-width:90%}
+  .intro-card{padding:70px 40px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- glow -->
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<!-- layer ของสิ่งลอย -->
+<div class="bg" id="bg"></div>
+
+<!-- หน้าเข้า -->
+<div id="intro">
+  <div class="intro-card">
+    <h1>สำหรับคนพิเศษ 💙</h1>
+    <button onclick="enter()">✨ เปิดความทรงจำ</button>
+  </div>
+</div>
+
+<!-- หน้าหลัก -->
+<div class="main" id="main">
+  <div class="card">
+
+    <div class="photo-wrap">
+      <div class="photo">
+        <img src="main.jpg">
+      </div>
+    </div>
+
+    <h2>Happy Anniversary</h2>
+    <div class="names">เอิร์ท 🤍 โอปอ</div>
+    <div class="badge">1Y • 08/02/25</div>
+
+    <div id="loveTime"></div>
+
+    <div class="message">
+      ขอบคุณที่อยู่ด้วยกันเสมอ 💙  
+      ทุกวันกับเธอคือของขวัญที่ดีที่สุด
+    </div>
+
+  </div>
+</div>
+
+<script>
+/* =========================
+   เปิดหน้าเข้า
+========================= */
+function enter(){
+  document.getElementById("intro").style.opacity=0;
+  setTimeout(()=>{
+    document.getElementById("intro").style.display="none";
+    document.getElementById("main").classList.add("show");
+  },1200);
+}
+
+/* =========================
+   นับเวลาคบแบบ real-time
+========================= */
+function updateLoveTime(){
+  const start=new Date(2025,1,8,7,40,0); // 8/02/68 07:40
+  const now=new Date();
+  let d=Math.floor((now-start)/1000);
+
+  const day=Math.floor(d/86400); d%=86400;
+  const h=Math.floor(d/3600); d%=3600;
+  const m=Math.floor(d/60);
+  const s=d%60;
+
+  loveTime.innerHTML=
+    `คบกันมาแล้ว 💕<br>
+     ${day} วัน ${h} ชั่วโมง ${m} นาที ${s} วินาที`;
+}
+setInterval(updateLoveTime,1000);
+updateLoveTime();
+
+/* =========================
+   รูปลอย
+========================= */
+const imgs=["pic1.jpg","pic2.jpg","pic3.jpg","pic4.jpg","pic5.jpg","pic6.jpg"];
+setInterval(()=>{
+  const i=document.createElement("img");
+  i.src=imgs[Math.floor(Math.random()*imgs.length)];
+  i.className="float-img";
+  i.style.left=Math.random()*100+"vw";
+  i.style.animationDuration=(12+Math.random()*6)+"s";
+  bg.appendChild(i);
+  setTimeout(()=>i.remove(),22000);
+},400);
+
+/* =========================
+   หัวใจ / ดาว / ดอกไม้
+========================= */
+const icons=["🤍","💙","✨","⭐","🌸","🌼"];
+setInterval(()=>{
+  const f=document.createElement("div");
+  f.className="floating";
+  f.innerText=icons[Math.floor(Math.random()*icons.length)];
+  f.style.left=Math.random()*100+"vw";
+  f.style.animationDuration=(11+Math.random()*6)+"s";
+  bg.appendChild(f);
+  setTimeout(()=>f.remove(),20000);
+},650);
+</script>
+
+</body>
+</html>
